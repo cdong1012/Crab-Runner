@@ -25,6 +25,7 @@ pub fn print_help() {
 	println!("Usage: crab_runner.exe <shellcode file>");
 	println!("Optional arguments:");
 	println!("	--offset <offset>\tThe shellcode offset to start at");
-	println!("	--debug\t\t\tVerbose mode");
+	println!("	--dump\t\t\tDumping shellcode (used when self-modification occurs)");
 	println!("	--version\t\tPrint the version\n");
+	println!("	--help\t\t\tView details about optional arguments");
 }

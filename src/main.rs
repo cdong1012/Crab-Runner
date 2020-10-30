@@ -4,13 +4,13 @@ extern crate winapi;
 mod help;
 mod launcher;
 use help::{print_banner, print_help};
-use launcher::{load_file, run_shellcode};
+use launcher::{run_shellcode, launch_thread, run_shellcode_dump};
 use std::ffi::CString;
 
 fn main() {
     let mut offset: i64 = 0;
-    let mut debug: bool = false;
     let version = "1.0";
+    let mut dump = false;
     print_banner();
     let argv = std::env::args()
         .map(|arg| CString::new(arg).unwrap())
@@ -45,10 +45,13 @@ fn main() {
                     }
                 }
             }
-        } else if argv[i] == CString::new("--debug").unwrap() {
-            debug = true;
         } else if argv[i] == CString::new("--version").unwrap() {
             println!("[x] The current version of Crabrunner is {}", version);
+        } else if argv[i] == CString::new("--dump").unwrap() {
+            dump = true;
+        }  else if argv[i] == CString::new("--help").unwrap() {
+            print_help();
+            return;
         } else {
             println!("[!!] Invalid flag - {:?}\n", argv[i]);
             print_help();
@@ -58,9 +61,25 @@ fn main() {
     }
     println!("[x] File name: {:?}", file_name);
     println!("[x] Shellcode offset: 0x{:x}", offset);
-    println!("[x] Debug: {}", debug);
+    let mut successful = false;
     unsafe {
-        let (buffer, size) = load_file(file_name, offset);
-        run_shellcode(buffer, size as usize, 0);
+        let (buffer, size) = match dump {
+            true => {
+                run_shellcode_dump(file_name, offset as u64)
+            },
+            false => {
+                run_shellcode(file_name, offset)
+            }
+        };
+
+        if buffer != std::ptr::null_mut() && size != 0 {
+            successful = launch_thread(buffer, size as usize, offset as u64) == 0;
+        }
     }
+    if successful {
+        println!("[x] Finish launching shellcode... Have fun!");
+    } else {
+        println!("[!!] Could not run this shellcode...");
+    }
+    
 }
