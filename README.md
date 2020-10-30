@@ -98,7 +98,7 @@ OALabs - [BlobRunner](https://github.com/OALabs/BlobRunner)
 
 adamkramer - [jmp2it](https://github.com/adamkramer/jmp2it)
 
-[Omar Sardar](https://twitter.com/osardar1) and [Michael Bailey](https://twitter.com/mykill) - Inspire me to write my own shellcode runner in our interview
+[Omar Sardar](https://twitter.com/osardar1) and [Michael Bailey](https://twitter.com/mykill) - Inspired me to write my own shellcode runner in our interview!
 
 ## License
 
