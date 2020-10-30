@@ -9,7 +9,7 @@ Up until that point, I never really thought much about how these programs were i
 
 
 ## Screenshots
-![](\images\Prompt.PNG)
+![](/images/Prompt.PNG)
 
 
 ## Usage
@@ -65,7 +65,7 @@ For example, if the shellcode unpacks itself, this dumped file will contain the 
 
 ### Attaching a debugger
 
-![](\images\attach.PNG)
+![](/images/attach.PNG)
 
 Before resuming the thread, make sure to attach a debugger through the following steps:
 
