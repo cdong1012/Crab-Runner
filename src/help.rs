@@ -26,6 +26,6 @@ pub fn print_help() {
 	println!("Optional arguments:");
 	println!("	--offset <offset>\tThe shellcode offset to start at");
 	println!("	--dump\t\t\tDumping shellcode (used when self-modification occurs)");
-	println!("	--version\t\tPrint the version\n");
+	println!("	--version\t\tPrint the version");
 	println!("	--help\t\t\tView details about optional arguments");
 }
