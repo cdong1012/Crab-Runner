@@ -72,7 +72,9 @@ Before resuming the thread, make sure to attach a debugger through the following
     1. Open your favorite debugger
     2. Attach your debugger to the given thread
     3. Go to the given entry point and place a breakpoint (Important!!)
-    4. Hit "Run" until you hit this breakpoint!
+    4. Hit "Run"
+    5. Enter anything to begin in your command prompt
+    6. Hit "Run" until you hit this breakpoint!
 
 
 ## For developers
